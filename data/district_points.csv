@@ -1,0 +1,7 @@
+icrisat_name,model_unit,latitude,longitude,source,notes
+Gulbarga,kalaburagi_yadgir,17.4,76.9,ICRISAT DLD LATITUDE/LONGITUDE,District reference point (one point per district; PRD 5.3 MVP)
+Yadagiri,kalaburagi_yadgir,16.76,77.14,ICRISAT DLD LATITUDE/LONGITUDE,
+Bidar,bidar,17.9,77.5,ICRISAT DLD LATITUDE/LONGITUDE,
+Raichur,raichur,16.2,77.4,ICRISAT DLD LATITUDE/LONGITUDE,
+Koppal,koppal,15.62,76.18,ICRISAT DLD LATITUDE/LONGITUDE,
+Bellary,ballari_vijayanagara,15.2,76.9,ICRISAT DLD LATITUDE/LONGITUDE,Covers Vijayanagara too (2015 boundaries); no separate Vijayanagara point

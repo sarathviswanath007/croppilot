@@ -1,0 +1,5 @@
+crop,window,months,share_of_arrivals,peak_month,monthly_shares,n_unit_years,status,label
+cotton,Nov-Dec-Jan-Feb-Mar,11;12;1;2;3,0.69,Jan,Jan:0.197;Feb:0.122;Mar:0.119;Apr:0.088;May:0.044;Jun:0.023;Jul:0.019;Aug:0.022;Sep:0.034;Oct:0.081;Nov:0.124;Dec:0.128,45,pending expert check,Assumption
+maize,Oct-Nov-Dec-Jan,10;11;12;1,0.684,Dec,Jan:0.142;Feb:0.087;Mar:0.061;Apr:0.049;May:0.032;Jun:0.023;Jul:0.012;Aug:0.012;Sep:0.041;Oct:0.155;Nov:0.186;Dec:0.200,51,pending expert check,Assumption
+soybean,Oct-Nov,10;11,0.568,Oct,Jan:0.112;Feb:0.052;Mar:0.031;Apr:0.018;May:0.017;Jun:0.015;Jul:0.010;Aug:0.010;Sep:0.025;Oct:0.297;Nov:0.271;Dec:0.143,24,pending expert check,Assumption
+tur,Jan-Feb,1;2,0.492,Jan,Jan:0.287;Feb:0.205;Mar:0.124;Apr:0.074;May:0.048;Jun:0.036;Jul:0.024;Aug:0.023;Sep:0.015;Oct:0.012;Nov:0.012;Dec:0.139,58,pending expert check,Assumption

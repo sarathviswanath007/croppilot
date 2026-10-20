@@ -1,0 +1,38 @@
+{
+  "_comment": "Tasks 3.01-3.06. Every value is [Assumption - unreviewed] from PRD 6.2-6.7 until the Phase 6 expert review. The maize suitability row and sowing window are placeholders (green gram was swapped for maize, D-05; the PRD has no maize row).",
+  "review_status": "unreviewed",
+  "suitability": {
+    "deep_black_drains_well":   {"tur": "Good",     "maize": "Fair",     "soybean": "Good",     "cotton": "Good"},
+    "medium_black_drains_well": {"tur": "Good",     "maize": "Fair",     "soybean": "Good",     "cotton": "Good"},
+    "shallow_black":            {"tur": "Fair",     "maize": "Fair",     "soybean": "Fair",     "cotton": "Marginal"},
+    "red":                      {"tur": "Fair",     "maize": "Fair",     "soybean": "Fair",     "cotton": "Fair"},
+    "waterlogs":                {"tur": "Marginal", "maize": "Marginal", "soybean": "Marginal", "cotton": "Fair"},
+    "mixed_or_unknown":         {"tur": "Fair",     "maize": "Fair",     "soybean": "Fair",     "cotton": "Fair"}
+  },
+  "multipliers": {"Good": 1.0, "Fair": 0.9, "Marginal": 0.75},
+  "exclusions": {
+    "min_seasons": 10,
+    "min_area_ha": 500,
+    "late_sowing_excluded": ["soybean"],
+    "late_sowing_note": "Late = after mid-July. Soybean excluded (PRD 6.2). Maize window to confirm with the expert, so maize is not excluded."
+  },
+  "flags": {
+    "same_crop_again": true,
+    "cotton_after_cotton": true,
+    "occupies_rabi": ["tur", "cotton"],
+    "soil_health_card_ranges": {}
+  },
+  "ranking": {
+    "lambda": {"cautious": 0.7, "balanced": 0.4, "growth": 0.1},
+    "tie_band": 0.05,
+    "close_call_pp": 10
+  },
+  "adjustments": {
+    "calibration_clip": [0.6, 1.4],
+    "protective_irrigation_alpha": 0.5,
+    "cost_band": [-0.10, 0.15],
+    "override_band": [-0.10, 0.10],
+    "n_draws": 2000,
+    "seed": 20261020
+  }
+}

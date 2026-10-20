@@ -1,0 +1,6 @@
+# Python packages for the data pipeline and models (tested with Python 3.14)
+numpy==2.5.4
+scikit-learn==1.9.1
+scipy==1.18.1
+pymupdf==2.0
+pypdf==6.21.1

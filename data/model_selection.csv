@@ -1,0 +1,5 @@
+crop,yield_model,yield_reason,yield_skill,yield_threshold_check,price_model,price_reason,price_skill,price_threshold_check,rules,decided
+tur,M2,"M2 MAE 206.8 beats B1 230.9 (skill 0.1042), outside the 1% tie margin",0.1042,"coverage 0.70 (inside 70-90%, n 40)",P2,ML fails (skill -0.1198 < 0.05); P2 is the better baseline,0.0,"coverage 0.72 (inside 70-90%, n 65)",selection_rules.md v1.0,2026-10-20
+maize,B1,M1 MAE 831.5 beats B1 833.5 by < 1%: tie goes to the simpler B1,0.0,"coverage 0.47 (outside 60-95%, n 38)",P1,ML fails (skill 0.0171 < 0.05); P1 is the better baseline,0.0,"coverage 0.67 (inside 60-95%, n 46)",selection_rules.md v1.0,2026-10-20
+soybean,B1,M2 MAE 486.1 does not beat B1 471.6,0.0,"coverage 0.80 (inside 70-90%, n 10)",ML,skill 0.1136 >= 0.05 and direction 0.6087 > 0.5 vs P1,0.1136,"coverage 0.94 (inside 60-95%, n 16)",selection_rules.md v1.0,2026-10-20
+cotton,B1,M1 MAE 118.1 beats B1 119.1 by < 1%: tie goes to the simpler B1,0.0,"coverage 0.79 (inside 70-90%, n 34)",P2,ML fails (skill -0.0168 < 0.05); P2 is the better baseline,0.0,"coverage 0.86 (inside 70-90%, n 29)",selection_rules.md v1.0,2026-10-20

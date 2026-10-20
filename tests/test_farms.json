@@ -1,0 +1,15 @@
+{
+  "_comment": "Task 3.30: 10 test farms for engine tests and JS/Python parity (AC-06). Invented test profiles, not real farmers.",
+  "farms": [
+    {"id": "F01", "district": "Kalaburagi", "acres": 2, "guntas": 20, "soil": "medium_black", "drainage": "drains_well", "water": "rainfed", "previous_crop": "none", "risk": "balanced"},
+    {"id": "F02", "district": "Yadgir", "acres": 5, "guntas": 0, "soil": "deep_black", "drainage": "drains_well", "water": "protective", "previous_crop": "tur", "risk": "cautious"},
+    {"id": "F03", "district": "Bidar", "acres": 1, "guntas": 10, "soil": "red", "drainage": "drains_well", "water": "rainfed", "previous_crop": "soybean", "risk": "growth"},
+    {"id": "F04", "district": "Raichur", "acres": 3, "guntas": 0, "soil": "shallow_black", "drainage": "waterlogs", "water": "rainfed", "previous_crop": "cotton", "risk": "balanced"},
+    {"id": "F05", "district": "Koppal", "acres": 0, "guntas": 30, "soil": "unknown", "drainage": "unknown", "water": "rainfed", "previous_crop": "maize", "risk": "cautious"},
+    {"id": "F06", "district": "Ballari", "acres": 4, "guntas": 20, "soil": "deep_black", "drainage": "drains_well", "water": "assured", "previous_crop": "other", "risk": "growth"},
+    {"id": "F07", "district": "Vijayanagara", "acres": 2, "guntas": 0, "soil": "red", "drainage": "unknown", "water": "protective", "previous_crop": "none", "risk": "balanced"},
+    {"id": "F08", "district": "Bidar", "acres": 6, "guntas": 0, "soil": "medium_black", "drainage": "drains_well", "water": "rainfed", "previous_crop": "none", "risk": "balanced", "late_sowing": true},
+    {"id": "F09", "district": "Kalaburagi", "acres": 3, "guntas": 15, "soil": "deep_black", "drainage": "drains_well", "water": "rainfed", "previous_crop": "tur", "risk": "cautious", "own_yield": {"tur": 5.5, "cotton": 4.0}, "own_cost": {"tur": 18000}},
+    {"id": "F10", "district": "Raichur", "acres": 1, "guntas": 0, "soil": "medium_black", "drainage": "drains_well", "water": "rainfed", "previous_crop": "maize", "risk": "growth", "price_override": {"maize": 2600, "cotton": 6500}}
+  ]
+}

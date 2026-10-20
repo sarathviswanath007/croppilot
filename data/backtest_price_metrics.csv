@@ -1,0 +1,13 @@
+crop,model,better_baseline,n_rows,n_seasons,n_units,first_season,last_season,mape,mape_ci90_low,mape_ci90_high,skill_vs_better_baseline,skill_ci90_low,skill_ci90_high,direction_accuracy,n_with_interval,coverage_10_90,label
+tur,P1,P2,65,13,5,2012,2024,0.2613,0.1677,0.3722,-0.1971,-0.5043,0.0038,,65,0.6462,Prediction (backtest)
+tur,P2,P2,65,13,5,2012,2024,0.2182,0.1334,0.3175,0.0,0.0,0.0,0.7077,65,0.7231,Prediction (backtest)
+tur,ML,P2,65,13,5,2012,2024,0.2444,0.1443,0.3715,-0.1198,-0.5618,0.1902,0.6462,55,0.7455,Prediction (backtest)
+maize,P1,P1,46,13,5,2012,2024,0.1301,0.1007,0.1649,0.0,0.0,0.0,,46,0.6739,Prediction (backtest)
+maize,P2,P1,46,13,5,2012,2024,0.1837,0.1363,0.2385,-0.4117,-0.9655,-0.0182,0.5,46,0.6087,Prediction (backtest)
+maize,ML,P1,46,13,5,2012,2024,0.1279,0.091,0.1656,0.0171,-0.2737,0.2456,0.6304,46,0.6739,Prediction (backtest)
+soybean,P1,P1,23,13,2,2012,2024,0.1367,0.0797,0.2078,0.0,0.0,0.0,,21,0.7143,Prediction (backtest)
+soybean,P2,P1,23,13,2,2012,2024,0.1498,0.0957,0.2111,-0.0956,-0.7943,0.3319,0.6087,21,0.7619,Prediction (backtest)
+soybean,ML,P1,23,13,2,2012,2024,0.1212,0.0778,0.1756,0.1136,-0.2668,0.3755,0.6087,16,0.9375,Prediction (backtest)
+cotton,P1,P2,29,13,4,2012,2024,0.166,0.1128,0.2282,-0.1566,-0.5812,0.1783,,29,0.6552,Prediction (backtest)
+cotton,P2,P2,29,13,4,2012,2024,0.1435,0.1117,0.1821,0.0,0.0,0.0,0.6207,29,0.8621,Prediction (backtest)
+cotton,ML,P2,29,13,4,2012,2024,0.146,0.0885,0.21,-0.0168,-0.5106,0.3831,0.6207,29,0.7241,Prediction (backtest)

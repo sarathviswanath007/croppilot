@@ -1,0 +1,30 @@
+{
+  "_comment": "Tasks 4.01 (PRD 6.8, FR-19). English words match as whole words (dotted code identifiers such as water.assured are skipped); Kannada words match as substrings. Allowed phrases are removed before scanning.",
+  "banned": [
+    "will",
+    "won't",
+    "guarantee",
+    "guaranteed",
+    "guarantees",
+    "sure",
+    "surely",
+    "assured",
+    "assure",
+    "assures",
+    "certain",
+    "certainly",
+    "definitely",
+    "promise",
+    "promised",
+    "risk-free",
+    "ಖಾತರಿ",
+    "ಖಚಿತ",
+    "ಭರವಸೆ",
+    "ಖಂಡಿತ"
+  ],
+  "allowed_phrases": [
+    "assured irrigation",
+    "\"assured\"",
+    "not a promise"
+  ]
+}

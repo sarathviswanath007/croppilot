@@ -1,0 +1,5 @@
+crop_key,display_name,icrisat_item,ceda_commodity_id,ceda_commodity_name,cacp_name,yield_basis,notes
+tur,Tur (red gram),PIGEONPEA,49,Arhar (Tur/Red Gram)(Whole),Arhar (Tur),grain,CEDA id 7 "Red Gram" is a sparse duplicate and is not used
+maize,Maize,MAIZE,4,Maize,Maize,grain,ICRISAT maize is all seasons combined (gap G15)
+soybean,Soybean,SOYABEAN,13,Soyabean,Soybean,grain,
+cotton,Cotton,COTTON,15,Cotton,Cotton,lint (ICRISAT); kapas (CACP and market prices),Convert lint to kapas with the ginning outturn (PRD 5.3)

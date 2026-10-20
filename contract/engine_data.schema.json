@@ -1,0 +1,552 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "croppilot/engine_data.schema.json",
+  "title": "CropPilot engine data contract",
+  "description": "The single JSON file the Python pipeline exports and the dashboard embeds (PRD §6.10). Version 0.2 (20 Oct 2026, D-20): adds optional fields for the real Phase 2 exports.",
+  "$comment": "Additions beyond PRD §6.10, needed by the engine in PRD §6: meta.mock; units[].label; crops[].sowing_window_end and occupies_rabi; yield_draws[].rel_errors (model-error factor e_i, §6.3), five_season_mean_q_per_acre (farmer calibration, §6.3) and data_through (G3); weather (Jul–Sep rainfall per weather season, for the protective-irrigation driest-third rule §6.3 and analog seasons §6.8); sufficiency (§5.5); price[].msp_season and harvest_window_cv; rules.exclusions, rules.ranking, rules.adjustments; backtest keyed by unit|crop. Cotton yields are already converted to kapas in q_per_acre. v0.2 (D-20) adds optional: yield_draws[].basis; price[].data_through, anchor_month, borrowed_from_units; top-level drivers (task 2.27) and models (shipped model per crop with backtest metrics, for the About page).",
+  "type": "object",
+  "required": [
+    "meta",
+    "units",
+    "crops",
+    "weather",
+    "sufficiency",
+    "yield_draws",
+    "price",
+    "costs",
+    "msp",
+    "rules",
+    "backtest"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "label": {
+      "enum": [
+        "Data",
+        "Data — farmer-reported",
+        "Prediction",
+        "Assumption"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "agri_year": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}$"
+    },
+    "crop_key": {
+      "enum": [
+        "tur",
+        "maize",
+        "soybean",
+        "cotton"
+      ]
+    },
+    "unit_crop_key": {
+      "type": "string",
+      "pattern": "^[a-z_]+\\|(tur|maize|soybean|cotton)$"
+    },
+    "month": {
+      "enum": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ]
+    },
+    "num_array": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "year_array": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1950,
+        "maximum": 2100
+      }
+    }
+  },
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": [
+        "version",
+        "built",
+        "target_season",
+        "sources"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "built": {
+          "$ref": "#/$defs/date"
+        },
+        "target_season": {
+          "type": "string"
+        },
+        "decision_date": {
+          "$ref": "#/$defs/date"
+        },
+        "mock": {
+          "type": "boolean",
+          "description": "true = every value is a placeholder; the UI must show a MOCK DATA banner"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "downloaded",
+              "coverage"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              },
+              "downloaded": {
+                "$ref": "#/$defs/date"
+              },
+              "coverage": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "units": {
+      "type": "object",
+      "description": "Model unit key -> current districts it covers (PRD §5.3)",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1
+      }
+    },
+    "crops": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "name",
+          "harvest_window",
+          "window_label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "harvest_window": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/month"
+            },
+            "minItems": 1
+          },
+          "window_label": {
+            "$ref": "#/$defs/label"
+          },
+          "sowing_window_end": {
+            "type": "string",
+            "description": "e.g. 'mid-July'; drives the late-sowing exclusion"
+          },
+          "occupies_rabi": {
+            "type": "boolean",
+            "description": "true = holds the field into winter (field-occupancy flag)"
+          }
+        }
+      }
+    },
+    "weather": {
+      "type": "object",
+      "description": "Per unit: Jul–Sep rainfall for each historical weather season",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "seasons",
+          "jas_rain_mm",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "seasons": {
+            "$ref": "#/$defs/year_array"
+          },
+          "jas_rain_mm": {
+            "$ref": "#/$defs/num_array"
+          },
+          "label": {
+            "$ref": "#/$defs/label"
+          }
+        }
+      }
+    },
+    "sufficiency": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/unit_crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "seasons_ok",
+          "passes"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "seasons_ok": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "passes": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "yield_draws": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/unit_crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "weather_seasons",
+          "q_per_acre",
+          "rel_errors",
+          "five_season_mean_q_per_acre",
+          "data_through",
+          "model",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "weather_seasons": {
+            "$ref": "#/$defs/year_array"
+          },
+          "q_per_acre": {
+            "$ref": "#/$defs/num_array",
+            "description": "ŷ(T, w) for each weather season, quintals per acre (kapas for cotton), before suitability multiplier"
+          },
+          "rel_errors": {
+            "$ref": "#/$defs/num_array",
+            "description": "Backtest relative residuals e, sampled as (1 + e)"
+          },
+          "five_season_mean_q_per_acre": {
+            "type": "number",
+            "minimum": 0
+          },
+          "data_through": {
+            "$ref": "#/$defs/agri_year"
+          },
+          "model": {
+            "enum": [
+              "ridge",
+              "hgbr",
+              "rf",
+              "baseline_b1",
+              "baseline_b2"
+            ]
+          },
+          "label": {
+            "const": "Prediction"
+          },
+          "basis": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "price": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/unit_crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "forecast",
+          "log_errors",
+          "error_seasons",
+          "model",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "forecast": {
+            "type": "number",
+            "minimum": 0,
+            "description": "₹ per quintal, harvest-window mean modal price"
+          },
+          "log_errors": {
+            "$ref": "#/$defs/num_array"
+          },
+          "error_seasons": {
+            "$ref": "#/$defs/year_array"
+          },
+          "harvest_window_cv": {
+            "type": "number",
+            "minimum": 0,
+            "description": "CV of harvest-window prices, last 10 seasons [Data]"
+          },
+          "model": {
+            "enum": [
+              "ridge",
+              "gbr",
+              "persistence",
+              "seasonal_naive"
+            ]
+          },
+          "label": {
+            "const": "Prediction"
+          },
+          "data_through": {
+            "type": "string"
+          },
+          "anchor_month": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "borrowed_from_units": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "costs": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "a2fl_per_acre",
+          "source",
+          "cost_year",
+          "inflation_factor",
+          "band",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "a2fl_per_acre": {
+            "type": "number",
+            "minimum": 0,
+            "description": "₹ per acre, already inflated to the target season"
+          },
+          "c2_per_acre": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "source": {
+            "type": "string"
+          },
+          "cost_year": {
+            "$ref": "#/$defs/agri_year"
+          },
+          "inflation_factor": {
+            "type": "number",
+            "minimum": 0
+          },
+          "band": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "label": {
+            "$ref": "#/$defs/label"
+          }
+        }
+      }
+    },
+    "msp": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "value",
+          "season",
+          "source",
+          "label"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "value": {
+            "type": "number",
+            "minimum": 0
+          },
+          "season": {
+            "$ref": "#/$defs/agri_year"
+          },
+          "source": {
+            "type": "string"
+          },
+          "announced": {
+            "$ref": "#/$defs/date"
+          },
+          "label": {
+            "$ref": "#/$defs/label"
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "required": [
+        "suitability",
+        "multipliers"
+      ],
+      "properties": {
+        "review_status": {
+          "type": "string",
+          "description": "'unreviewed' until Phase 6, then 'expert-reviewed (name, date)'"
+        },
+        "suitability": {
+          "type": "object",
+          "description": "soil/drainage condition -> crop -> tier",
+          "additionalProperties": {
+            "type": "object",
+            "propertyNames": {
+              "$ref": "#/$defs/crop_key"
+            },
+            "additionalProperties": {
+              "enum": [
+                "Good",
+                "Fair",
+                "Marginal",
+                "Not suitable"
+              ]
+            }
+          }
+        },
+        "multipliers": {
+          "type": "object",
+          "required": [
+            "Good",
+            "Fair",
+            "Marginal"
+          ],
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "exclusions": {
+          "type": "object"
+        },
+        "ranking": {
+          "type": "object"
+        },
+        "adjustments": {
+          "type": "object"
+        }
+      }
+    },
+    "backtest": {
+      "type": "object",
+      "propertyNames": {
+        "$ref": "#/$defs/unit_crop_key"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "yield_skill",
+          "coverage",
+          "n",
+          "confidence"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "yield_skill": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "price_skill": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "coverage": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "n": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "confidence": {
+            "enum": [
+              "High",
+              "Medium",
+              "Low",
+              null
+            ]
+          }
+        }
+      }
+    },
+    "drivers": {
+      "type": "object",
+      "description": "Per crop: shipped yield model's drivers, or null with a note for baselines (task 2.27)"
+    },
+    "models": {
+      "type": "object",
+      "description": "Per crop: shipped yield and price model, reasons and backtest metrics (model cards)"
+    }
+  }
+}

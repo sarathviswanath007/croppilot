@@ -1,0 +1,11 @@
+{
+  "name": "croppilot-tools",
+  "private": true,
+  "description": "Test-only tools for CropPilot (not deployed). jsdom renders the web app in Node for the label and wording audit (tasks 4.14-4.17).",
+  "scripts": {
+    "audit": "node ../tests/ui_audit.js"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

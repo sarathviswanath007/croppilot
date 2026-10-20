@@ -1,0 +1,5 @@
+crop,state,cost_year,a2fl_per_acre_cost_year,inflation_factor,inflation_basis,a2fl_per_acre,c2_per_acre,band_low,band_high,target_season,source,label
+cotton,Karnataka,2024-25,28917,1.0927,"flat 3%/yr for 3 yr (placeholder for CPI-AL, D-09)",31599,41830,-0.1,0.15,Kharif 2027,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(n), printed p.333",Assumption
+maize,Karnataka,2024-25,24028,1.0927,"flat 3%/yr for 3 yr (placeholder for CPI-AL, D-09)",26256,35441,-0.1,0.15,Kharif 2027,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(d), printed p.268",Assumption
+soybean,Karnataka,2024-25,22775,1.0927,"flat 3%/yr for 3 yr (placeholder for CPI-AL, D-09)",24887,32849,-0.1,0.15,Kharif 2027,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(j), printed p.315",Assumption
+tur,Karnataka,2024-25,18341,1.0927,"flat 3%/yr for 3 yr (placeholder for CPI-AL, D-09)",20042,25503,-0.1,0.15,Kharif 2027,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(f), printed p.280",Assumption

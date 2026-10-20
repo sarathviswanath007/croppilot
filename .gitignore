@@ -1,0 +1,9 @@
+# Environments and installed packages (recreate with requirements.txt / tools/package.json)
+.venv/
+tools/node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Large scanned PDF (54 MB): re-download from the URL in raw/raw_sources_log.csv
+raw/raw_cacp_kharif_report_2026-27_20261019.pdf

@@ -1,0 +1,111 @@
+{
+ "meta": {
+  "target_season": "Kharif 2027",
+  "built": "2026-10-20",
+  "rules": "selection_rules.md v1.0",
+  "seed": 20261020,
+  "script": "scripts/p2_export.py"
+ },
+ "drivers": {
+  "tur": {
+   "model": "hgbr",
+   "params": {
+    "max_depth": 3,
+    "learning_rate": 0.1,
+    "max_iter": 100
+   },
+   "drivers": [
+    {
+     "feature": "season",
+     "importance_kg_ha": 93.4,
+     "p25": 1998.0,
+     "p75": 2012.0,
+     "effect_p25_to_p75_kg_ha": 273.0
+    },
+    {
+     "feature": "rain_jun",
+     "importance_kg_ha": 10.8,
+     "p25": 51.4,
+     "p75": 125.7,
+     "effect_p25_to_p75_kg_ha": 23.4
+    },
+    {
+     "feature": "rain_jjas",
+     "importance_kg_ha": 10.1,
+     "p25": 337.1,
+     "p75": 613.7,
+     "effect_p25_to_p75_kg_ha": 18.2
+    },
+    {
+     "feature": "rainy_days_jjas",
+     "importance_kg_ha": 10.1,
+     "p25": 35.0,
+     "p75": 52.0,
+     "effect_p25_to_p75_kg_ha": 11.0
+    },
+    {
+     "feature": "rain_jul",
+     "importance_kg_ha": 8.1,
+     "p25": 64.2,
+     "p75": 141.6,
+     "effect_p25_to_p75_kg_ha": 55.4
+    },
+    {
+     "feature": "tmax_as",
+     "importance_kg_ha": 6.7,
+     "p25": 29.7,
+     "p75": 31.7,
+     "effect_p25_to_p75_kg_ha": -32.3
+    },
+    {
+     "feature": "rain_sep",
+     "importance_kg_ha": 5.7,
+     "p25": 83.8,
+     "p75": 174.8,
+     "effect_p25_to_p75_kg_ha": 19.6
+    },
+    {
+     "feature": "dry_spell_ja",
+     "importance_kg_ha": 4.8,
+     "p25": 9.0,
+     "p75": 15.0,
+     "effect_p25_to_p75_kg_ha": -23.7
+    },
+    {
+     "feature": "rain_oct",
+     "importance_kg_ha": 4.7,
+     "p25": 50.4,
+     "p75": 131.2,
+     "effect_p25_to_p75_kg_ha": 19.8
+    },
+    {
+     "feature": "rain_aug",
+     "importance_kg_ha": 2.8,
+     "p25": 84.8,
+     "p75": 179.1,
+     "effect_p25_to_p75_kg_ha": -22.3
+    }
+   ],
+   "method": "permutation importance (30 shuffles, seed 20261020) on training rows; effect = mean prediction at the feature's 75th minus 25th percentile",
+   "label": "Prediction"
+  },
+  "maize": {
+   "model": "baseline_b1",
+   "drivers": null,
+   "note": "Baseline B1 (mean of the last five published seasons): weather does not change it.",
+   "label": "Prediction"
+  },
+  "soybean": {
+   "model": "baseline_b1",
+   "drivers": null,
+   "note": "Baseline B1 (mean of the last five published seasons): weather does not change it.",
+   "label": "Prediction"
+  },
+  "cotton": {
+   "model": "baseline_b1",
+   "drivers": null,
+   "note": "Baseline B1 (mean of the last five published seasons): weather does not change it.",
+   "label": "Prediction"
+  }
+ }
+}

@@ -1,0 +1,8 @@
+current_district,model_unit,icrisat_name,ceda_census2011_name,ceda_district_id,notes
+Kalaburagi,kalaburagi_yadgir,Gulbarga,Gulbarga,579,
+Yadgir,kalaburagi_yadgir,Yadagiri,Yadgir,580,"Carved from Kalaburagi in 2010; ICRISAT has Yadagiri from 2010, earlier years inside Gulbarga"
+Bidar,bidar,Bidar,Bidar,558,
+Raichur,raichur,Raichur,Raichur,559,"Includes Koppal in years where ICRISAT has no Koppal (before 1998)"
+Koppal,koppal,Koppal,Koppal,560,"Carved from Raichur in 1997; ICRISAT has Koppal from 1998"
+Ballari,ballari_vijayanagara,Bellary,Bellary,565,
+Vijayanagara,ballari_vijayanagara,,,,"Carved from Ballari in 2021; inside Bellary in both ICRISAT (2015 boundaries) and CEDA (Census 2011)"

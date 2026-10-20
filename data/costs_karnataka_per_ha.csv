@@ -1,0 +1,13 @@
+crop,year,state,a2_per_ha,a2fl_per_ha,c2_per_ha,a2fl_per_acre,c2_per_acre,yield_q_per_ha,source,label
+tur,2022-23,Karnataka,27960,34037,47223,13775,19111,5.71,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(f), printed p.280",Data (derived)
+tur,2023-24,Karnataka,35463,42429,55109,17171,22302,5.23,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(f), printed p.280",Data (derived)
+tur,2024-25,Karnataka,36458,45321,57671,18341,23339,5.86,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(f), printed p.280",Data (derived)
+maize,2022-23,Karnataka,39711,47696,68596,19302,27760,35.77,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(d), printed p.268",Data (derived)
+maize,2023-24,Karnataka,45015,54955,76913,22240,31126,33.22,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(d), printed p.268",Data (derived)
+maize,2024-25,Karnataka,48625,59373,80143,24028,32433,34.79,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(d), printed p.268",Data (derived)
+soybean,2022-23,Karnataka,40026,45587,62101,18449,25132,15.53,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(j), printed p.315",Data (derived)
+soybean,2023-24,Karnataka,47134,53169,71166,21517,28800,14.52,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(j), printed p.315",Data (derived)
+soybean,2024-25,Karnataka,49052,56277,74281,22775,30061,15.3,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(j), printed p.315",Data (derived)
+cotton,2022-23,Karnataka,47646,58813,84564,23801,34223,12.66,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(n), printed p.333",Data (derived)
+cotton,2023-24,Karnataka,57632,67719,92509,27406,37438,13.38,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(n), printed p.333",Data (derived)
+cotton,2024-25,Karnataka,59383,71455,94591,28917,38280,14.74,"CACP Price Policy for Kharif Crops 2026-27, Annex 5.6(n), printed p.333",Data (derived)

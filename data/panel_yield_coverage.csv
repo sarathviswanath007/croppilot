@@ -1,0 +1,21 @@
+unit,crop,seasons_ge_500ha,first,last,passes_sufficiency,years_in_source
+ballari_vijayanagara,cotton,30,1990-91,2019-20,True,1990-91 to 2019-20
+ballari_vijayanagara,maize,30,1990-91,2019-20,True,1990-91 to 2019-20
+ballari_vijayanagara,soybean,0,,,False,1990-91 to 2019-20
+ballari_vijayanagara,tur,30,1990-91,2019-20,True,1990-91 to 2019-20
+bidar,cotton,24,1990-91,2019-20,True,1990-91 to 2019-20
+bidar,maize,15,1999-00,2019-20,True,1990-91 to 2019-20
+bidar,soybean,17,2003-04,2019-20,True,1990-91 to 2019-20
+bidar,tur,30,1990-91,2019-20,True,1990-91 to 2019-20
+kalaburagi_yadgir,cotton,30,1990-91,2019-20,True,1990-91 to 2019-20
+kalaburagi_yadgir,maize,30,1990-91,2019-20,True,1990-91 to 2019-20
+kalaburagi_yadgir,soybean,13,2005-06,2019-20,True,1990-91 to 2019-20
+kalaburagi_yadgir,tur,30,1990-91,2019-20,True,1990-91 to 2019-20
+koppal,cotton,22,1998-99,2019-20,True,1990-91 to 2019-20
+koppal,maize,22,1998-99,2019-20,True,1990-91 to 2019-20
+koppal,soybean,0,,,False,1990-91 to 2019-20
+koppal,tur,22,1998-99,2019-20,True,1990-91 to 2019-20
+raichur,cotton,30,1990-91,2019-20,True,1990-91 to 2019-20
+raichur,maize,21,1990-91,2019-20,True,1990-91 to 2019-20
+raichur,soybean,0,,,False,1990-91 to 2019-20
+raichur,tur,30,1990-91,2019-20,True,1990-91 to 2019-20
